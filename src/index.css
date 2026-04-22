@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-fondo: #f0fdfa;
+  --color-primario: #075985;
+  --color-secundario: #fde047;
+  --color-texto: #075985;
+  --color-burbuja-user: #fde047;
+  --color-burbuja-bot: #f0fdfa;
+  --color-acento: #0d9488;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-fondo)] text-[var(--color-texto)] font-sans antialiased;
+  }
+}
+
+@layer components {
+  .mensaje {
+    @apply max-w-[80%] rounded-3xl p-6 shadow-sm text-lg leading-snug transition-all font-semibold font-display;
+  }
+  
+  .mensaje-user {
+    @apply bg-[var(--color-burbuja-user)] text-[#713f12] shadow-md rounded-tr-none border-b-4 border-[#ca8a04]/20;
+  }
+  
+  .mensaje-bot {
+    @apply bg-white text-[var(--color-primario)] border-4 border-teal-50 rounded-tl-none;
+  }
+
+  .btn-vibrant {
+    @apply bg-[#fde047] hover:bg-[#facc15] text-[#075985] px-6 py-2 rounded-xl font-bold shadow-[0_4px_0_#ca8a04] active:translate-y-1 transition-all;
+  }
+
+  .card-notebook {
+    @apply bg-white rounded-3xl p-5 shadow-sm border border-teal-100;
+  }
+}
+
+.header-vibrant {
+  @apply h-20 bg-[#075985] flex items-center justify-between px-8 shadow-md flex-shrink-0;
+}
+
+.typing-dots span {
+  animation: blink 1s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
